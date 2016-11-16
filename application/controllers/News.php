@@ -19,15 +19,17 @@ class News extends CI_Controller{
 	}
 	public function view($slug=NULL)
 	{
+		/*$data['news_item']=$this->news_model->get_info();*/
 		$data['news_item']=$this->news_model->get_info($slug);
-        if (empty($data['news_item']))
+       if (empty($data['news_item']))
+
 		{
 			
 			show_404();
 		}	
         $data['title']=$data['news_item']['title'];
-        $this->load->view('templates/header',$data);
-        $this->load->view('news/view',$data);
+        $this->load->view('templates/header', $data);
+        $this->load->view('news/view', $data);
         $this->load->view('templates/footer');		
 	}
 	public function create(){
@@ -47,9 +49,18 @@ class News extends CI_Controller{
 		   
 	   }
 	   else {
-		   $this->news_model->set_news();
-	       $this->load->view('news/success');
-            }
+
+		   $check=$this->news_model->set_news();
+		   if ($check) {
+		   	# code...
+		   	redirect('news');
+		   }
+		   else
+		   {
+		   	show_404();
+		   }
+	       
+        }
 	}
 	
 	
