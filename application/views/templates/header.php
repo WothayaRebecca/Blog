@@ -66,9 +66,9 @@
  <div id="row3" class="col-md-12">
  <ul class="nav nav-tabs">
    
-   <li role="presentation"><a href="<?php echo base_url('pages'); ?>"><b>home</b></a></li>
-   <li role="presentation"><a href="<?php echo base_url('news/create'); ?>"><b>News</b></a></li>
-   <li role="presentation"><a href="<?php echo base_url('news/index'); ?>"><b>View News</b></a></li>
+   <li role="presentation"><a href="<?php echo site_url('pages'); ?>"><b>home</b></a></li>
+   <li role="presentation"><a href="<?php echo site_url('news/create'); ?>"><b>News</b></a></li>
+   <li role="presentation"><a href="<?php echo site_url('news/index'); ?>"><b>View News</b></a></li>
 
  </ul>
    
