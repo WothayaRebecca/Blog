@@ -13,7 +13,7 @@ class News_model extends CI_Model
 		if($slug===FALSE)
 		{
 		$query=$this->db->get('news');
-		
+
 		return $query->result_array();
 		}
 				
@@ -24,9 +24,9 @@ class News_model extends CI_Model
 	public function set_news()
 	{
 		$this->load->helper('url');
-		$slug=url_title($this->input->post('title'), 'dash',TRUE);
+		$slug = url_title($this->input->post('title'), 'dash',TRUE);
 		
-		$data=array(
+		$data = array(
 		'title'=>$this->input->post('title'),
 
 		'slug'=>$slug,
