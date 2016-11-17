@@ -78,7 +78,7 @@ $db['default'] = array(
 	'username' => 'root',
 	'password' => '!nt3ll',
 	'database' => 'blog',
-	'dbdriver' => 'mysql',
+	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
