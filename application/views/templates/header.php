@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
    <title>Code igniter training </title>
-   <link rel="stylesheet" href="<?php echo base_url('Bootstrap\css\bootstrap.min.css');?>"> 
+   <link rel="stylesheet" href="<?php echo base_url('Bootstrap/css/bootstrap.min.css');?>"> 
 
    <style type="text/css">
    #body
