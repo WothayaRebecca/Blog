@@ -19,7 +19,7 @@
    {
     color: blue;
     font-size: 18px;
-    background-color: greenyellow;
+    background-color: ;
 
    }
    #row1
@@ -51,19 +51,29 @@
     margin-left: 30px;
 
   }
+  .vcenter
+  {
+
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+  }
 
   </style>
 </head>
 <body> 
+<div class="container">
 <div class="row">
   <div id="row1" class="col-md-12">
   <h2>
+
       <?php echo $title;?>
     </h2>
 
   </div>
+</div>
 <div class="row">
- <div id="row3" class="col-md-12">
+ <div id="row3" class="col-md-12" style="text-align: center;">
  <ul class="nav nav-tabs">
    
    <li role="presentation"><a href="<?php echo site_url('pages'); ?>"><b>home</b></a></li>
@@ -77,5 +87,4 @@
  
   <h1><?php echo $title;?> </h1>  -->
   
-
    
