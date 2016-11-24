@@ -50,13 +50,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['news/create']='news/create';
-$route['news/view']='news/view';
+// $route['news/view']='news/view';
 $route['news/index']='news/index';
 $route['news/(:any)']='news/view/$1';
-$route['news']='news';
-$route['pages']='pages/view';
-$route['images']='images';
-$route['(:any)'] = 'pages/view/$1';
-$route['default_controller'] = 'pages/view';
+// $route['news']='news';
+$route['pages']='pages/login';
+// $route['pages/login']='pages/login';
+// $route['pages/login_validation']='news/view';
+// $route['pages/welcome']='pages/welcome';
+// $route['pages/logout']='pages/logout';
+$route['news/publish']='news/publish';
+
+// $route['(:any)'] = 'pages/view/$1';
+$route['default_controller'] = 'pages/register';
 
 

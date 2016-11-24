@@ -6,8 +6,9 @@ echo $news_item['title'];?>
 </h2>
 <p class="paragraph">
 <?php
-echo $news_item['text'];?>
-</p>
+echo $news_item['text'];
+?>
+
 
 
 

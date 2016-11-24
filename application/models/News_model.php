@@ -12,7 +12,7 @@ class News_model extends CI_Model
 	{
 		if($slug===FALSE)
 		{
-		$query=$this->db->get('news');
+		$query=$this->db->get_where('news', array('status' =>1));
 
 		return $query->result_array();
 		}
@@ -21,9 +21,10 @@ class News_model extends CI_Model
 
 		return $query->row_array();
 	}
-	public function set_news()
+	public function set_news($user_id)
 	{
 		$this->load->helper('url');
+		$status=0;
 		$slug = url_title($this->input->post('title'), 'dash',TRUE);
 		
 		$data = array(
@@ -31,7 +32,11 @@ class News_model extends CI_Model
 
 		'slug'=>$slug,
 
-		'text'=>$this->input->post('text'));
+		'status'=>$status,
+
+		'text'=>$this->input->post('text'),
+		'user_id'=>$user_id);
+
 		
 		return $this->db->insert('news', $data);
 		
@@ -39,5 +44,49 @@ class News_model extends CI_Model
 		
 		
 		
+	}
+	
+	public function view_new_posts($slug=FALSE)
+	{
+		
+		if($slug==FALSE)
+		{
+		
+		$query=$this->db->get_where('news', array('status' =>0));
+
+		return $query->result_array();
+		}
+				
+		$query=$this->db->get_where('news', array('slug'=> $slug));
+
+		return $query->row_array();
+	}
+	public function update_status($slug)
+	{
+		$data=array('status' =>1);
+     
+      $this->db->where('slug',$slug);
+      $this->db->update('news', $data);
+	}
+	public function reset_status($slug)
+	{
+		$data=array('status' =>0);
+     
+      $this->db->where('slug',$slug);
+      $this->db->update('news', $data);
+	}
+	public function view_new_own_posts($slug , $user_id)
+	{
+
+		if($slug===FALSE)
+		{
+		$query=$this->db->get_where('news', array('user_id' =>$user_id));
+
+		return $query->result_array();
+		}
+				
+		$query=$this->db->get_where('news', array('slug'=> $slug));
+
+		return $query->row_array();
 	}
 }

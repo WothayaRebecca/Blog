@@ -68,22 +68,53 @@
   <h2>
 
       <?php echo $title;?>
-    </h2>
+  </h2>
 
   </div>
 </div>
 <div class="row">
  <div id="row3" class="col-md-12" style="text-align: center;">
  <ul class="nav nav-tabs">
+ <?php
+ if(!$uname)
+  {
+    echo $uname;
+    ?>
+
+   <li role="presentation"><a href="<?php echo site_url('pages/register'); ?>"><b>Register</b></a></li>
+   <li role="presentation"><a href="<?php echo site_url('pages/login'); ?>"><b>Login</b></a></li>   
+   <li role="presentation"><a href="<?php echo site_url('news/index'); ?>"><b>View News</b></a></li>   
    
-   <li role="presentation"><a href="<?php echo site_url('pages'); ?>"><b>home</b></a></li>
-   <li role="presentation"><a href="<?php echo site_url('news/create'); ?>"><b>News</b></a></li>
-   <li role="presentation"><a href="<?php echo site_url('news/index'); ?>"><b>View News</b></a></li>
+
+  <?php
+  }
+  else
+  { 
+    if($uname!='admin')
+    {
+      echo $uname;
+      ?>     
+      <li role="presentation"><a href="<?php echo site_url('news/create'); ?>"><b>Create Post</b></a></li>
+      <li role="presentation"><a href="<?php echo site_url('news/index'); ?>"><b>View News</b></a></li>
+      <li role="presentation"><a href="<?php echo site_url('pages/logout'); ?>"><b>Logout</b></a></li>
+      
+
+      <?php }
+    
+    else
+     {
+      
+      ?>
+      <li role="presentation"><a href="<?php echo site_url('news/create'); ?>"><b>Create Post</b></a></li>
+      <li role="presentation"><a href="<?php echo site_url('news/index'); ?>"><b>View News</b></a></li>
+      <li role="presentation"><a href="<?php echo site_url('pages/logout'); ?>"><b>Logout</b></a></li>
+      <li role="presentation"><a href="<?php echo site_url('pages/delete_blogger'); ?>"><b>Delete blogger</b></a></li> 
+      <?php
+      }?>
+  <?php }?>
 
  </ul>
    
  </div>
-</div><!--background="<?php echo base_url('Images\blog4.jpg');?>" no-repeat >
- 
-  <h1><?php echo $title;?> </h1>  -->
+</div>
   

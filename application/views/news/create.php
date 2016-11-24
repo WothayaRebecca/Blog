@@ -19,8 +19,7 @@
           <label style="margin-left: 300px; padding-top: 30px" for="text"><b> Text</b></label>
           <textarea id="txtinput" name="text"> </textarea></br>
           <input id="txtinput" style="margin-left: 335px" class="btn btn-default" type="submit"  name="submit" value="create news item"/>
-  
-      
+                
         </form>
     </div>
 
