@@ -21,7 +21,7 @@ class News_model extends CI_Model
 
 		return $query->row_array();
 	}
-	public function set_news($user_id)
+	public function set_news($user_id,$actual_date,$username)
 	{
 		$this->load->helper('url');
 		$status=0;
@@ -35,7 +35,9 @@ class News_model extends CI_Model
 		'status'=>$status,
 
 		'text'=>$this->input->post('text'),
-		'user_id'=>$user_id);
+		'user_id'=>$user_id,
+		'Date_created'=>$actual_date,
+		'Created_by'=>$username);
 
 		
 		return $this->db->insert('news', $data);
@@ -46,6 +48,11 @@ class News_model extends CI_Model
 		
 	}
 	
+	public function get_numrows()
+	{
+     $query=$this->db->get('news');
+     return $query->num_rows();
+	}
 	public function view_new_posts($slug=FALSE)
 	{
 		

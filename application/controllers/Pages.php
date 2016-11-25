@@ -22,7 +22,9 @@ class Pages extends CI_Controller
 	public function register($page='home')
 
   {
-    echo "you are now registering";
+        //$date= date(DateTime::ISO8601);
+        $actual_date=date('Y-m-d H:i:s');
+        //echo $actual_date;
         $uname=$this->session->userdata('user_type');
         $this->load->helper('url');
         $this->load->model('Login_model');
@@ -75,7 +77,7 @@ class Pages extends CI_Controller
   }
   function login_validation()
   {
-      echo "string";
+      
      $uname=$this->session->userdata('user_type');
         $this->load->helper('url');
         $this->load->model('Login_model');
@@ -96,12 +98,12 @@ class Pages extends CI_Controller
          }
          else
          {
-          echo "string";
+          
 
           $username=$this->input->post('username');
           $password=$this->input->post('password');
           $hashed_password=$this->encrypt->encode($password);   
-          echo $hashed_password;      
+          //echo $hashed_password;      
           $this->load->model('Login_model');
           $db_password=$this->Login_model->log_in($username);
           $match_password=$this->encrypt->decode($db_password);

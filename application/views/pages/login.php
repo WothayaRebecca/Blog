@@ -1,19 +1,22 @@
 <div class="container">
- <div class="row">
-    <div id="row2" class="col-md-8">
-            
-       
-       <?php echo validation_errors()?>
-     <!-- <form action = "Pages/login_validation" method = 'post'> -->
-     		<form action = "login_validation" method = 'post'>
-          <label style="margin-left: 300px" for="username"><b> Username</b> </label>
-          <input id="txtinput" type="input" name="username" required ></br><br/>
-          <label style="margin-left: 300px; padding-top: 30px" for="password"><b> Password</b></label>
-          <input id="txtinput" type="password" name="password" required ></br><br/>
-          <input id="txtinput" style="margin-left: 380px" class="btn btn-default" type="submit"  name="submit" value="Login"/>
+ <div class="row" style="padding-top: 10px">
+    <div id="row2" class="col-md-2"></div>
+    <div class="col-md-8" style="border: groove; padding-top: 10px">
+    <?php echo validation_errors()?>
+     <!-- <form action = "Pages/login_validation" method  = 'post'> -->
+        <form action = "login_validation" method = 'post' style="padding-top: 10px; padding-left: 200px;">          
+          <input id="txtinput" type="input" name="username" placeholder="username" required ></br><br/>         
+          <input id="txtinput" type="password" name="password" placeholder="password" required ></br><br/>
+          <input id="txtinput" style="margin-left: 50px" class="btn btn-default" type="submit"  name="submit" value="Login"/>
                 
         </form>
+      
     </div>
+    <div class="col-md-2"></div>
+            
+       
+       
+    
 
  </div> 
 

@@ -24,7 +24,7 @@
    }
    #row1
    {
-    background-color:green !important;
+    background-color:white !important;
     text-align: center;
 
    }
@@ -36,7 +36,7 @@
   #row3
   {
 
-  	background-color: GreenYellow;
+  	background-color: white;
     text-align: center;
   }
   #container
@@ -74,12 +74,11 @@
 </div>
 <div class="row">
  <div id="row3" class="col-md-12" style="text-align: center;">
- <ul class="nav nav-tabs">
+ <ul class="nav nav-tabs" style="color: blue;">
  <?php
  if(!$uname)
   {
-    echo $uname;
-    ?>
+  ?>
 
    <li role="presentation"><a href="<?php echo site_url('pages/register'); ?>"><b>Register</b></a></li>
    <li role="presentation"><a href="<?php echo site_url('pages/login'); ?>"><b>Login</b></a></li>   
@@ -92,8 +91,8 @@
   { 
     if($uname!='admin')
     {
-      echo $uname;
-      ?>     
+      
+    ?>     
       <li role="presentation"><a href="<?php echo site_url('news/create'); ?>"><b>Create Post</b></a></li>
       <li role="presentation"><a href="<?php echo site_url('news/index'); ?>"><b>View News</b></a></li>
       <li role="presentation"><a href="<?php echo site_url('pages/logout'); ?>"><b>Logout</b></a></li>

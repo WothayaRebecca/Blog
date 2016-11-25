@@ -65,7 +65,7 @@ class Login_model extends CI_Model
 
     		return $user['user_type'];
     	}
-    }
+    }    
 
     public function get_user_id($username)
     {
