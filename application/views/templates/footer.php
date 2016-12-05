@@ -1,3 +1,6 @@
-<p class="paragraph" style="text-align: center; padding: 30px"><em>&copy; 2016</em></p>
+<div class="row">
+<div class="col-md-12" id="row3" style=" color: black; text-align: center;"><em>&copy;Rebz2016</em></p>
+</div>
+</div>
 </body>
 </html>

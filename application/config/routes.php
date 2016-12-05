@@ -60,6 +60,8 @@ $route['pages']='pages/login';
 // $route['pages/welcome']='pages/welcome';
 // $route['pages/logout']='pages/logout';
 $route['news/publish']='news/publish';
+$route['news/edit']='news/edit';
+$route['news/edit/news/update_post']='news/update_post';
 
 // $route['(:any)'] = 'pages/view/$1';
 $route['default_controller'] = 'pages/register';

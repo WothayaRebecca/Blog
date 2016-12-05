@@ -26,6 +26,7 @@ class Pages extends CI_Controller
         $actual_date=date('Y-m-d H:i:s');
         //echo $actual_date;
         $uname=$this->session->userdata('user_type');
+        $creator=$this->session->userdata('username');
         $this->load->helper('url');
         $this->load->model('Login_model');
         $this->load->helper('form');
@@ -34,6 +35,7 @@ class Pages extends CI_Controller
 
         $data['title'] = 'MY BLOG';
         $data['uname']=$uname; 
+
         $this->form_validation->set_rules('email', 'Email Address','required');
         $this->form_validation->set_rules('username', 'Username','required');
         $this->form_validation->set_rules('password','Password', 'required');
@@ -59,7 +61,7 @@ class Pages extends CI_Controller
 
     $uname=$this->session->userdata('user_type');
     $data['title'] = 'MY BLOG';
-    $data['uname']=$uname;
+    $data['uname']=$uname;      
     $this->load->view('templates/header',$data);
     $this->load->helper('url');
     $this->load->view('pages/login', $data);
@@ -67,9 +69,10 @@ class Pages extends CI_Controller
   }
   public function welcome($uname = null){
 
-    $uname=$this->session->userdata('user_type');
+    $uname=$this->session->userdata('username');
     $data['title'] = 'MY BLOG';
     $data['uname'] = $uname;
+    echo $uname;
     $this->load->view('templates/header',$data);
     $this->load->helper('url');
     $this->load->view('pages/welcome', $data);

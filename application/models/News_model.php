@@ -8,10 +8,11 @@ class News_model extends CI_Model
 		parent::__construct();
 		$this->load->database();
 	}
-	public function get_info($slug=FALSE)
+	public function get_info($limit, $start, $slug=FALSE)
 	{
 		if($slug===FALSE)
-		{
+		{ 
+		$this->db->limit($limit,$start);
 		$query=$this->db->get_where('news', array('status' =>1));
 
 		return $query->result_array();
@@ -40,26 +41,23 @@ class News_model extends CI_Model
 		'Created_by'=>$username);
 
 		
-		return $this->db->insert('news', $data);
-		
-		
-		
-		
+		return $this->db->insert('news', $data);		
 		
 	}
 	
 	public function get_numrows()
 	{
-     $query=$this->db->get('news');
-     return $query->num_rows();
+     $this->db->from('news');
+     return $this->db->count_all_results();
 	}
-	public function view_new_posts($slug=FALSE)
+	public function view_new_posts( $limit,$start,$slug=FALSE)
 	{
 		
 		if($slug==FALSE)
 		{
-		
-		$query=$this->db->get_where('news', array('status' =>0));
+		$this->db->limit($limit,$start);
+		//$query=$this->db->get_where('news', array('status' =>0));
+		$query=$this->db->get('news');
 
 		return $query->result_array();
 		}
@@ -95,5 +93,22 @@ class News_model extends CI_Model
 		$query=$this->db->get_where('news', array('slug'=> $slug));
 
 		return $query->row_array();
+	}
+	public function retrieve_post($slug)
+	{
+      $query=$this->db->get_where('news', array('slug'=> $slug));
+      return $query->row_array();
+
+
+	}
+	public function update_post($data)
+	{
+     
+     $this->db->where('slug', $data['slug']);
+     $this->db->update('news', $data);
+     return TRUE;
+     
+
+
 	}
 }

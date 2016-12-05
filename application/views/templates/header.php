@@ -24,7 +24,7 @@
    }
    #row1
    {
-    background-color:white !important;
+    background-color:green !important;
     text-align: center;
 
    }
@@ -60,6 +60,103 @@
   }
 
   </style>
+  <script type="text/javascript">
+    function validate_register_form()
+    {
+     var email= document.register_form.email;
+     var username=document.register_form.username;
+     var password=document.register_form.password;
+     var confirm_password=document.register_form.confirm_password;
+     var usertype=document.register_form.usertype;
+     if(username.value=="")
+       {
+        window.alert("please enter your name");
+        username.focus();
+        return false;
+       } 
+
+     if(email.value.indexOf("@",0)<0)
+     {
+       window.alert("please enter a valid email address");
+       email.focus();
+       return false;
+
+     }
+     if(email.value.indexOf(".",0)<0)
+     {
+       window.alert("please enter a valid email address");
+       email.focus();
+       return false;
+
+     }
+     if(email.value.indexOf("com",0)<0)
+     {
+       window.alert("please enter a valid email address");
+       email.focus();
+       return false;
+
+     }
+
+     if(password.value!=confirm_password.value)
+     {
+       window.alert("the passwords entered do not match");
+       password.focus();
+       return false;
+
+     }
+     if(password.value.length<5)
+     {
+       window.alert("the password must be 5 digits in length");
+       password.focus();
+       return false;
+
+     }
+     return true;
+
+
+    }
+    function validate_login_form()
+    {
+      var username=document.login_form.username;
+      var password=document.login_form.password;
+      if (username.value=='')
+      {
+        window.alert("please enter your username");
+        username.focus();
+        return false;
+      }
+      if (password.value=='')
+      {
+        window.alert("please enter yoir username");
+        password.focus();
+        return false;
+      }
+      return true;
+
+    }
+    function validate_create_form()
+    {
+      var title=document.create_form.title;
+      var textarea=document.create_form.text;
+      if (title.value=="") 
+      {
+        window.alert("please enter the title of the post");
+        title.focus();
+        return false;
+      } 
+      if ($.trim(textarea.value)=="") 
+       { 
+        window.alert("please enter the text of the post");
+        textarea.focus();
+        return false;
+       }
+       
+      return true;
+
+    }
+
+
+  </script>
 </head>
 <body> 
 <div class="container">
@@ -80,8 +177,8 @@
   {
   ?>
 
-   <li role="presentation"><a href="<?php echo site_url('pages/register'); ?>"><b>Register</b></a></li>
-   <li role="presentation"><a href="<?php echo site_url('pages/login'); ?>"><b>Login</b></a></li>   
+   <li role="presentation" style="float: right;"><a href="<?php echo site_url('pages/register'); ?>"><b>Register</b></a></li>
+   <li role="presentation" style="float: right;" ><a href="<?php echo site_url('pages/login'); ?>"><b>Login</b></a></li>   
    <li role="presentation"><a href="<?php echo site_url('news/index'); ?>"><b>View News</b></a></li>   
    
 
@@ -95,7 +192,7 @@
     ?>     
       <li role="presentation"><a href="<?php echo site_url('news/create'); ?>"><b>Create Post</b></a></li>
       <li role="presentation"><a href="<?php echo site_url('news/index'); ?>"><b>View News</b></a></li>
-      <li role="presentation"><a href="<?php echo site_url('pages/logout'); ?>"><b>Logout</b></a></li>
+      <li role="presentation" style="float: right;"><a href="<?php echo site_url('pages/logout'); ?>"><b>Logout</b></a></li>
       
 
       <?php }
@@ -106,8 +203,9 @@
       ?>
       <li role="presentation"><a href="<?php echo site_url('news/create'); ?>"><b>Create Post</b></a></li>
       <li role="presentation"><a href="<?php echo site_url('news/index'); ?>"><b>View News</b></a></li>
-      <li role="presentation"><a href="<?php echo site_url('pages/logout'); ?>"><b>Logout</b></a></li>
-      <li role="presentation"><a href="<?php echo site_url('pages/delete_blogger'); ?>"><b>Delete blogger</b></a></li> 
+      <!-- <li role="presentation"><a href="<?php echo site_url('pages/delete_blogger');?>"><b>Delete blogger</b></a --><!-- </li> -->
+      <li role="presentation" style="float: right;"><a href="<?php echo site_url('pages/logout'); ?>"><b>Logout</b></a></li>
+       
       <?php
       }?>
   <?php }?>
