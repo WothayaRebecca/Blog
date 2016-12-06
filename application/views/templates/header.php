@@ -115,6 +115,13 @@
 
 
     }
+    $(document).ready(function(){
+    $("#linkslide").hover(function(){
+        $("#p1").css("color", "red")
+            .slideUp(2000)
+            .slideDown(2000);
+      });
+    });
     function validate_login_form()
     {
       var username=document.login_form.username;
@@ -154,6 +161,23 @@
       return true;
 
     }
+    // function hover_link()
+    // {
+    //   alert("click here to view the whole article")
+    //   return true;
+      
+
+    // }
+    $(document).ready(function(){
+    $("#buttonAnimate").click(function(){
+        $("#imganimate").animate({
+            left: '250px',
+            opacity: '0.5',
+            height: '150px',
+            width: '150px'
+        });
+    });
+});
 
 
   </script>

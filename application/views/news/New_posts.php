@@ -1,25 +1,28 @@
-<h2 class="paragraph">
-<?php
-echo $news_item['title'];?>
-</h2>
-<p class="paragraph">
+
+<div class="panel panel-default">
+<div class="panel-body">
 <?php
 echo $news_item['text'];
 ?>
 
-<p class="paragraph">
+<div class="text-left">
 <?php
 if ($news_item['status']==0)
 	{?>
+<br>
 <a href="<?php echo site_url('news/publish/'.$news_item['slug']); ?>" class="btn btn-info" >Publish Article</a>
 <?php
 }
 else
 {?>
-
-<a href="<?php echo site_url('news/Unpublish/'.$news_item['slug']); ?>" class="btn btn-info" >Unpublish Article</a>
+<br>
+<a style="padding-top: 10px; padding-left: 10px;" href="<?php echo site_url('news/Unpublish/'.$news_item['slug']); ?>" class="btn btn-info" >Unpublish Article</a>
 <?php
 }?>
-</p>
-<p><div class="next" style="margin-left: 1000px"> <a href="<?php echo site_url('news/index'); ?>">Go back to the list </a></div></p>
+</div>
+</div>
+<div class="text-right">
+<div class="panel-footer" > <a href="<?php echo site_url('news/index'); ?>">Go back to the list </a></div>
+</div>
+</div>
 
