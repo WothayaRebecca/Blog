@@ -50,6 +50,13 @@ class News_model extends CI_Model
      $this->db->from('news');
      return $this->db->count_all_results();
 	}
+	public function get_numrows_published()
+	{
+     $this->db->from('news');
+     $this->db->where('status', 1);
+     return $this->db->count_all_results();
+
+	}
 	public function view_new_posts( $limit,$start,$slug=FALSE)
 	{
 		

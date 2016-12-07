@@ -210,10 +210,12 @@
   }
   else
   { 
-    if($uname!='admin')
+    if($uname == 1) 
     {
+    
       
-    ?>     
+    ?>    
+
       <li role="presentation"><a href="<?php echo site_url('news/create'); ?>"><b>Create Post</b></a></li>
       <li role="presentation"><a href="<?php echo site_url('news/index'); ?>"><b>View News</b></a></li>
       <li role="presentation" style="float: right;"><a href="<?php echo site_url('pages/logout'); ?>"><b>Logout</b></a></li>
@@ -223,6 +225,7 @@
     
     else
      {
+      
       
       ?>
       <li role="presentation"><a href="<?php echo site_url('news/create'); ?>"><b>Create Post</b></a></li>

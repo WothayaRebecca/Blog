@@ -20,18 +20,20 @@ class News extends CI_Controller
 	 	//echo $rows;
 
      $config['base_url']=base_url().'index.php/news/index';
-     $config['total_rows']=$this->news_model->get_numrows();
+     //$config['total_rows']=$this->news_model->get_numrows();
      //echo $config['total_rows'] ;
      $config['per_page']=5;    
      $config['cur_tag_open']='&nbsp;<a class="current">' ; 
      $config['cur_tag_close']='</a>';
      $config['uri_segment']=3;     
-     $this->pagination->initialize($config);
+     //$this->pagination->initialize($config);
 	 $uname=$this->session->userdata('user_type');
 	 
-	  if($uname!='admin')
+	  if($uname!=2)
 	  { 
 	   $page=$this->uri->segment(3);
+	   $config['total_rows']=$this->news_model->get_numrows_published();
+	   $this->pagination->initialize($config);
 		$data['news']=$this->news_model->get_info($config['per_page'], $page);
 		$links=$this->pagination->create_links();		
 		$data['links']=explode('</a>', $links);
@@ -43,7 +45,9 @@ class News extends CI_Controller
 		$this->load->view('templates/footer');
 	   }
 	  else
-	  {
+	  { 
+	  	$config['total_rows']=$this->news_model->get_numrows();
+	  	$this->pagination->initialize($config);
         $page=$this->uri->segment(3);
 		$data['news']=$this->news_model->view_new_posts($config['per_page'], $page);
 		$links=$this->pagination->create_links();		
@@ -65,7 +69,7 @@ class News extends CI_Controller
 		 $page=$this->uri->segment(3);
 		
 
-		if($uname!='admin')//||($uname==''))
+		if($uname!=2)//||($uname==''))
 		{
 	      $data['news_item']=$this->news_model->get_info($config['per_page'], $page, $slug);
           if(empty($data['news_item']))
@@ -114,7 +118,7 @@ class News extends CI_Controller
 
 		if($uname != '')
 		{
-			if($uname == 'admin' || $uname=='blogger')
+			if($uname == 2 || $uname==1)
 			{			
 
               $this->load->helper('form');
@@ -129,7 +133,7 @@ class News extends CI_Controller
 	          if($this->form_validation->run()==FALSE)
 	          {
 		         $this->load->view('templates/header',$data);
-		         $this->load->view('news/create');
+		         $this->load->view('news/create', $data);
 		         $this->load->view('templates/footer');   
 		   
 	          }
@@ -155,7 +159,11 @@ class News extends CI_Controller
             }
             else 
             {
-              echo "you are not allowed to access this page";
+              $data['title']='ERROR';
+              $data['uname']=$uname;
+              $this->load->view('templates/header', $data);
+		      $this->load->view('news/create_error');
+		      $this->load->view('templates/footer');
             }
 			
 
@@ -175,7 +183,7 @@ class News extends CI_Controller
   	
   	$uname=$this->session->userdata('user_type');
 
-	  if($uname!='admin')
+	  if($uname!=2)
 	  {
 		$data['news_item']=$this->news_model->get_info();
 		$data['title']='CURRENT NEWS';
@@ -200,7 +208,7 @@ class News extends CI_Controller
   	
   	$uname=$this->session->userdata('user_type');
 
-	  if($uname!='admin')
+	  if($uname!=2)
 	  {
 		$data['news']=$this->news_model->view_new_posts();
 		$data['uname']=$uname;

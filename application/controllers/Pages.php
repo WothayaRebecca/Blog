@@ -31,6 +31,8 @@ class Pages extends CI_Controller
         $this->load->model('Login_model');
         $this->load->helper('form');
         $this->load->library('form_validation');
+        $usertype=$this->input->post('user_type');
+        echo $usertype;
 
 
         $data['title'] = 'MY BLOG';
@@ -50,8 +52,10 @@ class Pages extends CI_Controller
            else 
            {
                 $check=$this->Login_model->set_details();
-                if($check)
+                if($check){
                   redirect('pages/login');
+                  echo $usertype;
+                }
                 else 
                   echo "dfd";
 
@@ -69,10 +73,12 @@ class Pages extends CI_Controller
   }
   public function welcome($uname = null){
 
-    $uname=$this->session->userdata('username');
+    $logged_in=$this->session->userdata('user_type');
+    $username=$this->session->userdata('username');
     $data['title'] = 'MY BLOG';
-    $data['uname'] = $uname;
-    echo $uname;
+    $data['uname'] = $logged_in;
+    $data['username']=$username;
+ 
     $this->load->view('templates/header',$data);
     $this->load->helper('url');
     $this->load->view('pages/welcome', $data);
@@ -122,13 +128,19 @@ class Pages extends CI_Controller
               $this->session->set_userdata( $session_data);
               //redirect('Pages/enter');
 
+
               $this->enter();
+              // echo $this->session->userdata('user_type');
 
             }
             else
             {
                $this->session->set_flashdata('error','wrong credentials, please try again');
-                echo "wrong credentials";
+                 //$data== "wrong credentials";
+                   $this->load->view('templates/header',$data);
+                   $this->load->helper('url');
+                   $this->load->view('pages/loginError');
+                   $this->load->view('templates/footer'); 
                 //redirect('Pages/login');
 
             }
