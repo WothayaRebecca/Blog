@@ -1,21 +1,24 @@
 <div class="container">
-<!-- <div class="panel panel-default"> -->
+ 
  <div class="row">
-  <div id="row2" class="col-md-4" >
-       <?php $image_url='/Images/register.jpg';?>          
-
-        <img id="imganimate" height="200" width="200" style="float: left" src="<?php echo base_url($image_url);?>" >
+  <div id="row2" class="col-md-2" >
+       <!-- <?php $image_url='/Images/register.jpg';?>          
+ -->
+        <!-- <img id="imganimate" height="200" width="200" style="float: left" src="<?php echo base_url($image_url);?>" > -->
   </div>
 
-    <div id="row2" class="col-md-8">
+    <div id="row2" class="col-md-8" style="padding-top: 10px;">
+    <div class="panel panel-default"> 
+    <div class="panel panel-heading">Register</div>
+    <div class="panel panel-body">
             
        <?php echo validation_errors() ?>
        
-      <form action = "register" method = 'post' name="register_form" onsubmit="return validate_register_form();">
+      <form action = "register" method = 'post' name="register_form" onsubmit="return validate_register_form();">   <label style="margin-left: 100px" for="username"><b> Username</b> </label>
+          <input id="txtinput" type="input" name="username" placeholder="Username" style="margin-left: 30px"><br><br>
           <label style="margin-left: 100px; padding-top: 10px" for="email"><b> Email Address</b> </label>
-          <input id="txtinput" type="input" name="email" placeholder="Email Address" ></br><br/>  
-          <label style="margin-left: 100px" for="username"><b> Username</b> </label>
-          <input id="txtinput" type="input" name="username" placeholder="Username" style="margin-left: 30px"></br>
+          <input id="txtinput" type="input" name="email" placeholder="Email Address" ></br>  
+          
           <label style="margin-left: 100px; padding-top: 30px" for="password"><b> Password</b></label>
           <input id="txtinput" type="password" name="password" placeholder="Password" style="margin-left: 30px" br><br/>
           <label style="margin-left: 100px; padding-top: 30px" for=" confirm_password"><b>Password</b></label>
@@ -34,10 +37,11 @@
   
       
         </form>
+        </div>
     </div>
 
  </div> 
- <!-- </div> -->
+  </div> 
 
 
 </div>

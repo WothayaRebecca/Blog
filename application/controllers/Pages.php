@@ -91,6 +91,34 @@ class Pages extends CI_Controller
     $this->load->view('pages/welcome', $data);
     $this->load->view('templates/footer');  
   }
+  public function wrong_pass($uname=0){
+
+   //$logged_in=$this->session->userdata('user_type');
+    $logged_in=$this->session->userdata('user_type');
+    $username=$this->session->userdata('username');
+    $data['title'] = 'PASSWORD RESET';
+    $data['uname'] = $logged_in;
+    $data['username']=$username;
+ 
+    $this->load->view('templates/header',$data);
+    $this->load->helper('url');
+    $this->load->view('pages/mailEnquire', $data);
+    $this->load->view('templates/footer');  
+  }
+  public function send_password($uname=0){
+
+   //$logged_in=$this->session->userdata('user_type');
+    $logged_in=$this->session->userdata('user_type');
+    $username=$this->session->userdata('username');
+    $data['title'] = 'PASSWORD RESET';
+    $data['uname'] = $logged_in;
+    $data['username']=$username;
+ 
+    $this->load->view('templates/header',$data);
+    $this->load->helper('url');
+    $this->load->view('pages/passwordReset', $data);
+    $this->load->view('templates/footer');  
+  }
   function login_validation()
   {
       

@@ -206,8 +206,10 @@
  <div id="row3" class="col-md-12">
    <ul class="nav nav-tabs " style="color: blue;">
    <?php
-   if(!$uname)
+   if($uname == 0)
+
    {
+    echo $uname;
    ?>
 
    <li role="presentation" style="float: right;"><a href="<?php echo site_url('pages/register'); ?>"><b>Register</b></a></li>
