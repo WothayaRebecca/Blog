@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container-fluid" style="max-width: 1200px;">
  <div class="row">
     <!-- <div class="col-md-2">
     

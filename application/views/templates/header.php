@@ -36,15 +36,15 @@
   #row3
   {
 
-  	background-color: white;
-    text-align: center;
+  	background-color: white !important;
+    /*text-align: center;*/
   }
-  #container
+  /*#container
   {
    height: 700px;
    width: 700px;
 
-  }
+  }*/
   .paragraph
   {
 
@@ -57,6 +57,15 @@
     display: inline-block;
     vertical-align: middle;
     float: none;
+  }
+  .selectMenu
+  {
+
+   clip:rect(2px 69px 39px 2px); z-index:2;
+    border-radius: 5px;
+    background-color: white;
+    width: 235px;
+    height: 30px;
   }
 
   </style>
@@ -183,27 +192,27 @@
   </script>
 </head>
 <body> 
-<div class="container">
-<div class="row">
-  <div id="row1" class="col-md-12">
+<div class="container-fluid">
+<!-- <div class="row"> -->
+  <div id="row1" class="col-md-12" style="border-radius: 5px; border-left: 3px; border-right: 3px; padding-left: 15px; padding-right: 15px;">
   <h2>
 
       <?php echo $title;?>
   </h2>
 
   </div>
-</div>
-<div class="row">
- <div id="row3" class="col-md-12" style="text-align: center;">
- <ul class="nav nav-tabs" style="color: blue;">
- <?php
- if(!$uname)
-  {
-  ?>
+
+
+ <div id="row3" class="col-md-12">
+   <ul class="nav nav-tabs " style="color: blue;">
+   <?php
+   if(!$uname)
+   {
+   ?>
 
    <li role="presentation" style="float: right;"><a href="<?php echo site_url('pages/register'); ?>"><b>Register</b></a></li>
    <li role="presentation" style="float: right;" ><a href="<?php echo site_url('pages/login'); ?>"><b>Login</b></a></li>   
-   <li role="presentation"><a href="<?php echo site_url('news/index'); ?>"><b>View News</b></a></li>   
+   <li role="presentation" style="float: left;"><a href="<?php echo site_url('news/index'); ?>"><b>View News</b></a></li>   
    
 
   <?php
@@ -240,5 +249,6 @@
  </ul>
    
  </div>
-</div>
+
+
   

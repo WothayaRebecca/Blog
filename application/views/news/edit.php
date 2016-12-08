@@ -14,9 +14,9 @@
 
       <form action = 'news/update_post' method = 'post'>
           <label style="margin-left: 300px; padding-top: 10px" for="title"><b> Title</b> </label>
-          <input id="txtinput" type="input" name="title" value="<?php echo $news['title'];?>" ></br><br/>
+          <input id="txtinput" type="input" class="form-control1" name="title" value="<?php echo $news['title'];?>" ></br><br/>
           <label style="margin-left: 300px; padding-top: 30px" for="text"><b> Text</b></label>
-          <textarea id="txtinput" type="input" name="text" ><?php echo set_value('description',$text);?> </textarea> </br>
+          <textarea id="txtinput" class="form-control1" rows="20" type="input" name="text" ><?php echo set_value('description',$text);?> </textarea> </br>
           <input id="txtinput" style="margin-left: 335px" class="btn btn-default" type="submit"  name="submit" value="save"/>
                 
         </form>

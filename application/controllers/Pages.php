@@ -53,8 +53,15 @@ class Pages extends CI_Controller
            {
                 $check=$this->Login_model->set_details();
                 if($check){
-                  redirect('pages/login');
-                  echo $usertype;
+
+                  $uname=$this->session->userdata('user_type');
+                  $data['title'] = 'MY BLOG';
+                  $data['uname']=$uname;      
+                  $this->load->view('templates/header',$data);
+                  $this->load->helper('url');
+                  $this->load->view('pages/account_create_success', $data);
+                  $this->load->view('templates/footer'); 
+                  
                 }
                 else 
                   echo "dfd";
