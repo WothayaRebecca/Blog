@@ -1,6 +1,6 @@
 <div class="alert alert-success" role="alert">
 <strong>Well done!</strong> <?php
-echo "You can now successfully unpublished the post.";?>
+echo "You can have successfully created an account.";?>
 <div class="container">
  <div class="row" style="padding-top: 10px; padding-bottom: 10px">
     <div id="row2" class="col-md-2"></div>

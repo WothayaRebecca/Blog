@@ -25,14 +25,14 @@ class Pages extends CI_Controller
         //$date= date(DateTime::ISO8601);
         $actual_date=date('Y-m-d H:i:s');
         //echo $actual_date;
-        $uname=$this->session->userdata('user_type');
-        $creator=$this->session->userdata('username');
+        $uname=0;
+        // $creator=$this->session->userdata('username');
         $this->load->helper('url');
         $this->load->model('Login_model');
         $this->load->helper('form');
         $this->load->library('form_validation');
         $usertype=$this->input->post('user_type');
-        echo $usertype;
+        
 
 
         $data['title'] = 'MY BLOG';
@@ -70,7 +70,7 @@ class Pages extends CI_Controller
   }
   public function login(){
 
-    $uname=$this->session->userdata('user_type');
+    $uname=0;
     $data['title'] = 'MY BLOG';
     $data['uname']=$uname;      
     $this->load->view('templates/header',$data);
@@ -187,7 +187,14 @@ class Pages extends CI_Controller
     
 
 
+
   }
+  // function email_exists($email)
+  // {
+  //  $this->Login_model->emailExist($email);
+
+
+  // }
   function enter()
   {
     if ($this->session->userdata('username')!='')
@@ -225,7 +232,18 @@ class Pages extends CI_Controller
    $this->load->view('pages/delete', $data);
    $this->load->view('templates/footer');
   }
+ public function checkMail()
+ {
 
+
+  $ecount=$this->Login_model->checkEmail();
+  
+  
+   if($ecount)
+   {
+      echo "Email already exists";
+   }
+ }
 
 
 }

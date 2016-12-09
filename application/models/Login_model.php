@@ -108,4 +108,23 @@ class Login_model extends CI_Model
     	}
 
     }
+    public function checkEmail()
+
+    {
+        $email=$this->input->post('email');
+       $this->db->where('Email', $email);
+
+        $query = $this->db->get('LOGIN');
+
+        if($query-> num_rows() > 0){
+            
+            return true;
+        }
+
+        else
+        {
+        return false;
+        }
+
+    }
 }

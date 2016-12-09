@@ -6,7 +6,7 @@
    
      <!-- <form action = "Pages/login_validation" method  = 'post'> -->
      <div class="alert alert-info" role="alert">
-        <strong>Alert:</strong> Please enter your email.
+        <strong>Alert:</strong> Please enter your email address.
      </div>
         <form action = "send_password" name="login_form"  method = 'post' style="padding-top: 10px; padding-left: 200px;">          
           <input id="txtinput" type="input" name="email" placeholder="Email" required ></br><br/>         

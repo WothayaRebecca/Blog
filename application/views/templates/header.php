@@ -3,9 +3,11 @@
 <head>
 <meta charset="utf-8"/>
    <title>Code igniter training </title>
+   <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
    <link rel="stylesheet" href="<?php echo base_url('Bootstrap/css/bootstrap.min.css');?>"> 
 
    <style type="text/css">
+
    #body
    {
 
@@ -177,18 +179,55 @@
       
 
     // }
-    $(document).ready(function(){
-    $("#buttonAnimate").click(function(){
-        $("#imganimate").animate({
-            left: '250px',
-            opacity: '0.5',
-            height: '150px',
-            width: '150px'
-        });
-    });
-});
+    
+    function checkMailStatus(){
+    //alert("came");
 
+        var email=$("#email").val();// value in field email
+        $.ajax({
+        type:'post',
+        url:'checkMail',// put your real file name 
+        data:{email: email},
+        success:function(msg){
+        
+        alert(msg); // your message will come here.     
+        }
+ });
+}
 
+function checkemail()
+{
+ var email=document.getElementById( "email" ).value;
+  
+ if(email)
+   {
+      $.ajax({
+      type: 'post',
+      url: 'checkMail.php',
+      data: {
+        user_email:email,
+       },
+      <?php echo "success"; ?>
+      success: function (response)
+       {
+        $( '#email_status' ).html(response);
+        if(response=="OK") 
+        {
+          return true;  
+        }
+        else
+        {
+         return false; 
+        }
+       }
+      });
+   }
+else
+ {
+  $( '#email_status' ).html("");
+  return false;
+ }
+}
   </script>
 </head>
 <body> 
@@ -209,7 +248,7 @@
    if($uname == 0)
 
    {
-    echo $uname;
+   
    ?>
 
    <li role="presentation" style="float: right;"><a href="<?php echo site_url('pages/register'); ?>"><b>Register</b></a></li>

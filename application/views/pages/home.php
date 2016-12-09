@@ -17,7 +17,7 @@
       <form action = "register" method = 'post' name="register_form" onsubmit="return validate_register_form();">   <label style="margin-left: 100px" for="username"><b> Username</b> </label>
           <input id="txtinput" type="input" name="username" placeholder="Username" style="margin-left: 30px"><br><br>
           <label style="margin-left: 100px; padding-top: 10px" for="email"><b> Email Address</b> </label>
-          <input id="txtinput" type="input" name="email" placeholder="Email Address" ></br>  
+          <input id="txtinput" type="input" name="email" placeholder="Email Address" id="email" onblur="checkemail()"></br>  
           
           <label style="margin-left: 100px; padding-top: 30px" for="password"><b> Password</b></label>
           <input id="txtinput" type="password" name="password" placeholder="Password" style="margin-left: 30px" br><br/>
