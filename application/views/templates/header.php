@@ -183,51 +183,21 @@
     function checkMailStatus(){
     //alert("came");
 
-        var email=$("#email").val();// value in field email
+        var email=document.getElementById( "email" ).value;
+        console.log(email);
         $.ajax({
         type:'post',
         url:'checkMail',// put your real file name 
         data:{email: email},
         success:function(msg){
+          document.getElementById('error').innerHTML="The Email address already exists";
         
-        alert(msg); // your message will come here.     
+        //alert(msg); // your message will come here.     
         }
  });
 }
 
-function checkemail()
-{
- var email=document.getElementById( "email" ).value;
-  
- if(email)
-   {
-      $.ajax({
-      type: 'post',
-      url: 'checkMail.php',
-      data: {
-        user_email:email,
-       },
-      <?php echo "success"; ?>
-      success: function (response)
-       {
-        $( '#email_status' ).html(response);
-        if(response=="OK") 
-        {
-          return true;  
-        }
-        else
-        {
-         return false; 
-        }
-       }
-      });
-   }
-else
- {
-  $( '#email_status' ).html("");
-  return false;
- }
-}
+
   </script>
 </head>
 <body> 

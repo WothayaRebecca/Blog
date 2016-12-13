@@ -112,6 +112,7 @@ class Login_model extends CI_Model
 
     {
         $email=$this->input->post('email');
+        echo $email;
        $this->db->where('Email', $email);
 
         $query = $this->db->get('LOGIN');

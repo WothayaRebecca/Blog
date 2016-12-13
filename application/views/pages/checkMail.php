@@ -13,7 +13,7 @@ if(isset($_POST['user_email']))
 {
  $emailId=$_POST['user_email'];
 
- $checkdata=" SELECT Email FROM blog WHERE Email='$emailId' ";
+ $checkdata=" SELECT Email FROM LOGIN WHERE Email =  '$emailId' ";
 
  $query=mysql_query($checkdata);
 

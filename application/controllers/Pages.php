@@ -234,14 +234,21 @@ class Pages extends CI_Controller
   }
  public function checkMail()
  {
-
+    $this->load->model('Login_model');
 
   $ecount=$this->Login_model->checkEmail();
   
   
    if($ecount)
    {
-      echo "Email already exists";
+    //$message="Email address already exists, please use another email address";
+    
+    //echo "Email address already exists, please use another email address";
+   }
+   else
+   {
+    return FALSE;
+    // echo "OK";
    }
  }
 
