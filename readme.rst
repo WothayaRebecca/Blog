@@ -63,7 +63,7 @@ Report security issues to our `Security Panel <mailto:security@codeigniter.com>`
 or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
 
 ***************
-Acknowledgementd
+Acknowledgement
 ***************
 
 The CodeIgniter team would like to thank EllisLab, all the
